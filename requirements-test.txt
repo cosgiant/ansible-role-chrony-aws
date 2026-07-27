@@ -7,7 +7,11 @@
 #
 # We need at least version 6 to correctly identify Amazon Linux 2023
 # as using the dnf package manager.
-ansible>=6,<7
+#
+# Floor raised to 12.2.0 to close CVE-2022-3697, CVE-2023-5115, and
+# CVE-2025-14010 (the old <7 upper bound had no documented reason to
+# exist and left all three unpatched).
+ansible>=12.2.0
 # With the release of molecule v5 there were some breaking changes so
 # we need to pin at v5 or newer. However, v5.0.0 had an internal
 # dependency issue so we must use the bugfix release as the actual
